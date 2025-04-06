@@ -35,7 +35,7 @@ public class Main {
 
             switch (opcion) {
                 case 1:
-                    registrarLibro();
+                    registrarLibro(libros);
                     break;
                 case 2:
                     registrarVenta();
@@ -71,7 +71,23 @@ public class Main {
         System.out.println("---------------------------------------------------");
     }
 
-    public static void registrarLibro() {
+    public static void registrarLibro(List<Libro> libros) {
+        System.out.println("\n--- Registrar Libro ---");
+
+        System.out.print("Id: ");
+        String id = sc.nextLine();
+
+        System.out.print("Titulo: ");
+        String titulo = sc.nextLine();
+
+        System.out.print("Autor: ");
+        String autor = sc.nextLine();
+
+        System.out.print("Precio: ");
+        double precio = sc.nextDouble();
+
+        Libro libro = new Libro(id, titulo, autor, precio, 0);
+        Libro.agregarLibro(libros, libro);
 
     }
 
