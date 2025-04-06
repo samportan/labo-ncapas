@@ -61,6 +61,19 @@ public class Libro {
         return super.toString();
     }
 
+    public static void agregarLibro(List<Libro> libros, Libro libro) {
+        libros.add(libro);
+    }
+
+    public static void mostrarLibros(List<Libro> libros) {
+        libros.forEach(l ->
+                System.out.println("Id: " + l.getId() +
+                        ", Titulo: " + l.getTitulo() +
+                        ", Autor: " + l.getAutor() +
+                        ", Precio: $" + l.getPrecio())
+        );
+    }
+
     //best-selling method
     public static Libro calcularLibroMasVendido(List<Libro> libros) {
         return libros.stream()

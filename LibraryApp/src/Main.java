@@ -1,24 +1,21 @@
-import java.lang.reflect.Array;
 import java.util.*;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    private static List<Libro> libros = new ArrayList<>();
-    //TODO: List of ventas
+
     private static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
 
         List<Libro> libros = new ArrayList<>();
-        List<Venta> ventas = new ArrayList<>();
 
         // Agregar libros a la lista
         libros.add(new Libro("1", "El Alquimista", "Paulo Coelho", 10.99, 100));
         libros.add(new Libro("2", "Cien años de soledad", "Gabriel García Márquez", 12.50, 200));
         libros.add(new Libro("3", "1984", "George Orwell", 15.00, 150));
 
-        //TODO: Create Ventas
+        List<Venta> ventas = new ArrayList<>();
 
         //Console menu
         int opcion = 0;
@@ -30,7 +27,7 @@ public class Main {
 
             switch (opcion) {
                 case 1:
-                    registrarLibro();
+                    registrarLibro(libros);
                     break;
                 case 2:
                     registrarVenta();
@@ -65,7 +62,24 @@ public class Main {
         System.out.print("Elige una opción: ");
     }
 
-    public static void registrarLibro() {
+    public static void registrarLibro(List<Libro> libros) {
+        System.out.println("\n--- Registrar Libro ---");
+
+        System.out.print("Id: ");
+        String id = sc.nextLine();
+
+        System.out.print("Titulo: ");
+        String titulo = sc.nextLine();
+
+        System.out.print("Autor: ");
+        String autor = sc.nextLine();
+
+        System.out.print("Precio: ");
+        double precio = sc.nextDouble();
+
+
+        Libro libro = new Libro(id,titulo, autor, precio, 0);
+        Libro.agregarLibro(libros, libro);
 
     }
 

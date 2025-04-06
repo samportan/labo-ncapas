@@ -38,9 +38,9 @@ public class Venta {
         this.fechaVenta = fechaVenta;
     }
 
-    //metodo para registrar venta
+    //add sale method
     public static Venta registrarVenta() { return null;}
 
-    //metodo paar mostrar venta
+    //show sale method
     public void mostrarVenta() {}
 }
