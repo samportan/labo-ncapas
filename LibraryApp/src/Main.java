@@ -11,6 +11,7 @@ public class Main {
     public static void main(String[] args) {
 
         List<Libro> libros = new ArrayList<>();
+        List<Venta> ventas = new ArrayList<>();
 
         // Agregar libros a la lista
         libros.add(new Libro("1", "El Alquimista", "Paulo Coelho", 10.99, 100));
@@ -35,7 +36,7 @@ public class Main {
                     registrarVenta();
                     break;
                 case 3:
-                    Libro max = calcularLibroMasVendido(libros);
+                    Libro max = Libro.calcularLibroMasVendido(libros);
                     System.out.println("El libro con más ventas es: " + max.getTitulo() + " con " +  max.getVentasTotales() + " ventas.");
                     break;
                 case 4:
@@ -70,12 +71,6 @@ public class Main {
 
     public static void registrarVenta() {
 
-    }
-
-    public static Libro calcularLibroMasVendido(List<Libro> libros) {
-        return libros.stream()
-                            .max(Comparator.comparingInt(Libro::getVentasTotales))
-                            .orElse(null);
     }
 
     public static void mostarLibroConVentasSuperores(int x) {}

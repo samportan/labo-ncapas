@@ -1,3 +1,6 @@
+import java.util.Comparator;
+import java.util.List;
+
 public class Libro {
     private String id;
     private String titulo;
@@ -56,6 +59,13 @@ public class Libro {
     @Override
     public String toString() {
         return super.toString();
+    }
+
+    //best-selling method
+    public static Libro calcularLibroMasVendido(List<Libro> libros) {
+        return libros.stream()
+                .max(Comparator.comparingInt(Libro::getVentasTotales))
+                .orElse(null);
     }
 
     public void actualizarVentas(int cantidad) {

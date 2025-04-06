@@ -1,3 +1,4 @@
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
@@ -37,13 +38,8 @@ public class Venta {
         this.fechaVenta = fechaVenta;
     }
 
-    public static Libro masVendido(List<Libro> libros) {
-
-        return null;
-    }
-
     //metodo para registrar venta
-    public void registrarVenta() {}
+    public static Venta registrarVenta() { return null;}
 
     //metodo paar mostrar venta
     public void mostrarVenta() {}
