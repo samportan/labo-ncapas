@@ -1,6 +1,5 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.lang.reflect.Array;
+import java.util.*;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -11,16 +10,12 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // Crear algunos libros
-        Libro libro1 = new Libro("1", "El Alquimista", "Paulo Coelho", 10.99, 100);
-        Libro libro2 = new Libro("2", "Cien años de soledad", "Gabriel García Márquez", 12.50, 200);
-        Libro libro3 = new Libro("3", "1984", "George Orwell", 15.00, 150);
-
+        List<Libro> libros = new ArrayList<>();
 
         // Agregar libros a la lista
-        libros.add(libro1);
-        libros.add(libro2);
-        libros.add(libro3);
+        libros.add(new Libro("1", "El Alquimista", "Paulo Coelho", 10.99, 100));
+        libros.add(new Libro("2", "Cien años de soledad", "Gabriel García Márquez", 12.50, 200));
+        libros.add(new Libro("3", "1984", "George Orwell", 15.00, 150));
 
         //TODO: Create Ventas
 
@@ -40,7 +35,8 @@ public class Main {
                     registrarVenta();
                     break;
                 case 3:
-                    calcularLibroMasVendido();
+                    Libro max = calcularLibroMasVendido(libros);
+                    System.out.println("El libro con más ventas es: " + max.getTitulo() + " con " +  max.getVentasTotales() + " ventas.");
                     break;
                 case 4:
                     mostarLibroConVentasSuperores(100);
@@ -76,7 +72,11 @@ public class Main {
 
     }
 
-    public static void calcularLibroMasVendido() {}
+    public static Libro calcularLibroMasVendido(List<Libro> libros) {
+        return libros.stream()
+                            .max(Comparator.comparingInt(Libro::getVentasTotales))
+                            .orElse(null);
+    }
 
     public static void mostarLibroConVentasSuperores(int x) {}
 
