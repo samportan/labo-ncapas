@@ -8,10 +8,10 @@ public class Venta {
     private int cantidadVendida;
     private Date fechaVenta;
 
-    public Venta(Libro libro, Integer cantidadVendida, Date fechaVenta) {
+    public Venta(Libro libro, Integer cantidadVendida) {
         this.libro = libro;
         this.cantidadVendida = cantidadVendida;
-        this.fechaVenta = fechaVenta;
+        this.fechaVenta = new Date();
     }
 
     public Libro getLibro() {
@@ -39,8 +39,9 @@ public class Venta {
     }
 
     //add sale method
-    public static Venta registrarVenta() { return null;}
-
+    public static void registrarVenta(List<Venta> ventas, Venta venta) {
+        ventas.add(venta);
+    }
     //show sale method
     public void mostrarVenta() {}
 }

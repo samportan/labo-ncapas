@@ -1,5 +1,6 @@
 import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
 
 public class Libro {
     private String id;
@@ -61,10 +62,20 @@ public class Libro {
         return super.toString();
     }
 
+    //add book method
     public static void agregarLibro(List<Libro> libros, Libro libro) {
         libros.add(libro);
     }
 
+    //search book method
+    public static Libro buscarLibro(List<Libro> list, String id) {
+        return list.stream()
+                .filter(libro -> libro.getId().equals(id))
+                .findFirst()
+                .orElse(null);
+    }
+
+    //show book method
     public static void mostrarLibros(List<Libro> libros) {
         libros.forEach(l ->
                 System.out.println("Id: " + l.getId() +

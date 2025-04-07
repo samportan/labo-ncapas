@@ -1,4 +1,5 @@
 import java.lang.reflect.Array;
+import java.time.LocalDate;
 import java.util.*;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -92,6 +93,23 @@ public class Main {
     }
 
     public static void registrarVenta() {
+
+        System.out.println("\n--- Registrar venta ---");
+        //select the book
+        System.out.print("Libros: ");
+        libros.forEach(l -> System.out.print(l.getId() + "." + l.getTitulo() + ", " ));
+
+        System.out.print("\nSeleccione el libro(ej. 1): ");
+        String id = sc.nextLine();
+        Libro libro = Libro.buscarLibro(libros, id) ;
+
+        //receive the amount
+        System.out.print("Cantidad: ");
+        int cantidad = Integer.parseInt(sc.nextLine());
+
+        //add the sale
+        Venta venta = new Venta(libro, cantidad);
+        Venta.registrarVenta(ventas, venta);
 
     }
 
