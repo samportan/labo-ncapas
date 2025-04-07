@@ -43,5 +43,11 @@ public class Venta {
         ventas.add(venta);
     }
     //show sale method
-    public void mostrarVenta() {}
+    public static void mostrarVenta(List<Venta> ventas) {
+        ventas.forEach(v ->
+                System.out.println("Libro: " + v.getLibro().getTitulo() +
+                        ", Cantidad: " + v.getCantidadVendida() +
+                        ", Fecha: " + v.getFechaVenta())
+                );
+    }
 }

@@ -29,7 +29,7 @@ public class Main {
         //Console menu
         int opcion = 0;
 
-        while (opcion != 6) {
+        while (opcion != 7) {
             mostrarMenu();
             opcion = sc.nextInt();
             sc.nextLine();
@@ -52,6 +52,9 @@ public class Main {
                     actualizarVentas();
                     break;
                 case 6:
+                    mostrar();
+                    break;
+                case 7:
                     System.out.println("Saliendo del programa...");
                     break;
                 default:
@@ -67,7 +70,8 @@ public class Main {
         System.out.println("3. Ver el libro más vendido");
         System.out.println("4. Ver libros con más de (N) unidades vendidas");
         System.out.println("5. Actualizar estadísticas de ventas");
-        System.out.println("6. Salir");
+        System.out.println("6. Mostrar libros/ventas");
+        System.out.println("7. Salir");
         System.out.println("Elige una opción: ");
         System.out.println("---------------------------------------------------");
     }
@@ -131,5 +135,15 @@ public class Main {
         for (Libro libro: libros) {
             System.out.println(libro.getTitulo() + " - ventas: " + libro.getVentasTotales());
         }
+    }
+
+    public static void mostrar() {
+        System.out.println("\n¿Que desea ver? 1.Libros 2.Ventas");
+        int opcion = sc.nextInt();
+
+        if (opcion == 1) {
+            Libro.mostrarLibros(libros);
+        } else Venta.mostrarVenta(ventas);
+
     }
 }
